@@ -16,19 +16,33 @@ Algorithm:
  
 Program:
 
-//type your code here
 
+#include <stdio.h>
 
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    switch(n) {
+        case 5: printf("seventy one\n"); break;
+        case 6: printf("seventy two\n"); break;
+        case 7: printf("seventy three\n"); break;
+        case 8: printf("seventy four\n"); break;
+        case 9: printf("seventy five\n"); break;
+        case 10: printf("seventy six\n"); break;
+        case 11: printf("seventy seven\n"); break;
+        case 12: printf("seventy eight\n"); break;
+        case 13: printf("seventy nine\n"); break;
+        default: printf("Greater than 13\n");
+    }
+    return 0;
+}
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/df474543-9d0c-4b48-88cb-b37867a7e6f7)
 
 
 Result:
@@ -47,7 +61,27 @@ Algorithm:
  
 Program:
 
-//type your code here
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char a[50];
+    int i, digit, count;
+
+    printf("Enter the string of digits: ");
+    scanf("%s", a);
+
+    for(digit = 0; digit <= 3; digit++) {
+        count = 0;
+        for(i = 0; i < strlen(a); i++) {
+            if(a[i] - '0' == digit)
+                count++;
+        }
+        printf("%d ", count);
+    }
+    printf("\n");
+    return 0;
+}
 
 
 
@@ -55,11 +89,7 @@ Program:
 Output:
 
 
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/67a6e67d-db27-4665-9394-009a53a9bbd7)
 
 
 Result:
@@ -84,19 +114,66 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-//type your code here
+       #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void swap(char *x, char *y) {
+    char temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+void reverse(char *str, int l, int r) {
+    while (l < r) {
+        swap(&str[l], &str[r]);
+        l++;
+        r--;
+    }
+}
+
+int next_permutation(char *str, int len) {
+    int i = len - 2;
+
+    while (i >= 0 && str[i] >= str[i + 1])
+        i--;
+
+    if (i < 0)
+        return 0; 
+
+    int j = len - 1;
+    while (str[j] <= str[i])
+        j--;
+
+    swap(&str[i], &str[j]);
+    reverse(str, i + 1, len - 1);
+
+    return 1;
+}
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    int len = strlen(str);
+
+    qsort(str, len, sizeof(char), (int (*)(const void*, const void*))strcmp);
+
+    printf("Permutations in lexicographical order:\n");
+    do {
+        printf("%s\n", str);
+    } while (next_permutation(str, len));
+
+    return 0;
+}
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
+![image](https://github.com/user-attachments/assets/b06342e7-81e8-4f47-9007-0afa1fa7ca6a)
 
 
 Result:
@@ -117,7 +194,26 @@ Algorithm:
  
 Program:
 
-//type your code here
+
+#include <stdio.h>
+int min(int a, int b) {
+    return (a < b) ? a : b;
+}
+int main() {
+    int n, i, j;
+    printf("Enter n: ");
+    scanf("%d", &n);
+    int len = 2 * n - 1;
+
+    for(i = 0; i < len; i++) {
+        for(j = 0; j < len; j++) {
+            int min_val = min(min(i, j), min(len - 1 - i, len - 1 - j));
+            printf("%d ", n - min_val);
+        }
+        printf("\n");
+    }
+    return 0;
+}
 
 
 
@@ -125,7 +221,8 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/52be5ce0-36e3-420c-a94e-0715639bccc6)
+
 
 
 
@@ -156,7 +253,21 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
+#include <stdio.h>
+
+int square() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    return num * num;
+}
+
+int main() {
+    int result = square();
+    printf("Square is: %d\n", result);
+    return 0;
+}
+
 
 
 
@@ -164,8 +275,7 @@ Program:
 Output:
 
 
-//paste your output here
-
+![image](https://github.com/user-attachments/assets/e7092776-70e8-410a-b774-f3a34bec36f5)
 
 
 
@@ -173,28 +283,6 @@ Output:
 
 Result:
 Thus, the program is verified successfully
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
