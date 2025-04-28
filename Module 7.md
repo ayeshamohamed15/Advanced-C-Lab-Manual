@@ -15,13 +15,45 @@ Else
 6.	Return 0
  
 Program:
+#include <stdio.h>
 
-//type your code here
+struct eligible {
+    int age;
+    char name[50];
+};
+
+int main() {
+    int i, n;
+    printf("Enter the number of persons: ");
+    scanf("%d", &n);
+
+    struct eligible e[n];
+
+    for(i = 0; i < n; i++) {
+        printf("Enter name: ");
+        scanf("%s", e[i].name);
+        printf("Enter age: ");
+        scanf("%d", &e[i].age);
+    }
+
+    for(i = 0; i < n; i++) {
+        printf("\nName: %s\nAge: %d\n", e[i].name, e[i].age);
+        if (e[i].age > 6)
+            printf("Vaccine Eligibility: Yes\n");
+        else
+            printf("Vaccine Eligibility: No\n");
+    }
+
+    return 0;
+}
+
+
 
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/1b091847-ccdd-4330-b83c-3797f96eb03a)
+
 
 
 Result:
@@ -44,17 +76,33 @@ Algorithm:
  
 Program:
 
-//type your code here
+#include <stdio.h>
 
+struct numbers {
+    int a;
+    int b;
+};
 
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
+
+int main() {
+    struct numbers n, sum;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &n.a, &n.b);
+
+    sum = add(n);
+    printf("Sum: %d\n", sum.a);
+    return 0;
+}
 
 
 Output:
 
-
-//paste your output here
-
-
+![image](https://github.com/user-attachments/assets/4a42ff51-398c-4b8a-961c-9e55ff85b456)
 
 
 Result:
@@ -86,22 +134,34 @@ Use scanf to input the file name into the name array.
  
 Program:
 
-//type your code here
+#include <stdio.h>
+
+int main() {
+    FILE *p;
+    char name[50];
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error in creating the file.\n");
+        return 1;
+    }
+
+    printf("File '%s' has been created and opened successfully.\n", name);
+    fclose(p);
+    printf("File closed.\n");
+
+    return 0;
+}
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/55a06524-7d95-4841-93d1-b91a0fbafae9)
 
 
 
@@ -133,7 +193,37 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
+#include <stdio.h>
+
+int main() {
+    FILE *p;
+    char name[50], text[100];
+    int i, num;
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+    printf("Enter number of lines to write: ");
+    scanf("%d", &num);
+
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error opening the file.\n");
+        return 1;
+    }
+
+    printf("Enter text:\n");
+    for (i = 0; i < num; i++) {
+        scanf(" %[^\n]", text); // To read a full line
+        fputs(text, p);
+        fputs("\n", p);
+    }
+
+    fclose(p);
+    printf("Data added and file closed successfully.\n");
+
+    return 0;
+}
+
 
 
 
@@ -141,12 +231,7 @@ Program:
 Output:
 
 
-//paste your output here
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/151f7489-9285-454c-8f14-5faddbe38317)
 
 Result:
 Thus, the program is verified successfully
@@ -187,7 +272,43 @@ Algorithm:
 
 Program:
 
-//type your code here
+#include <stdio.h>
+#include <stdlib.h>
+
+struct subject {
+    char name[50];
+    int marks;
+};
+
+int main() {
+    int n, i;
+    struct subject *s;
+
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+
+    s = (struct subject *)malloc(n * sizeof(struct subject));
+    if (s == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; i++) {
+        printf("Enter subject name: ");
+        scanf("%s", s[i].name);
+        printf("Enter marks: ");
+        scanf("%d", &s[i].marks);
+    }
+
+    printf("\nSubject Details:\n");
+    for (i = 0; i < n; i++) {
+        printf("Subject: %s, Marks: %d\n", s[i].name, s[i].marks);
+    }
+
+    free(s);
+    return 0;
+}
+
 
 
 
@@ -195,12 +316,11 @@ Program:
 Output:
 
 
-//paste your output here
-
+![image](https://github.com/user-attachments/assets/c2986e2e-9026-471c-9bc9-9b9fae50af4d)
 
 
 
 
 
 Result:
-Thus, the program is verified successfully
+Thus, the program is verified successfully
