@@ -12,10 +12,29 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
+#include <stdio.h>
+
+int max_of_four(int a, int b, int c, int d) {
+    int max = a;
+    if(b > max) max = b;
+    if(c > max) max = c;
+    if(d > max) max = d;
+    return max;
+}
+
+int main() {
+    int n1, n2, n3, n4, greater;
+    printf("Enter four numbers: ");
+    scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+    greater = max_of_four(n1, n2, n3, n4);
+    printf("The greatest number is: %d\n", greater);
+    return 0;
+}
+
 
 Output:
-//paste your output here
+![image](https://github.com/user-attachments/assets/b54bd6a8-0f2a-433b-ae54-f0ed6e84cfe5)
+
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,10 +55,34 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+#include <stdio.h>
+
+void calculate_the_max(int n, int k) {
+    int a = 0, o = 0, x = 0;
+    for(int i = 1; i <= n; i++) {
+        for(int j = i + 1; j <= n; j++) {
+            if((i & j) < k && (i & j) > a) a = i & j;
+            if((i | j) < k && (i | j) > o) o = i | j;
+            if((i ^ j) < k && (i ^ j) > x) x = i ^ j;
+        }
+    }
+    printf("Maximum AND < k: %d\n", a);
+    printf("Maximum OR < k: %d\n", o);
+    printf("Maximum XOR < k: %d\n", x);
+}
+
+int main() {
+    int n, k;
+    printf("Enter values for n and k: ");
+    scanf("%d %d", &n, &k);
+    calculate_the_max(n, k);
+    return 0;
+}
+
 
 Output:
-//paste your output here
+![image](https://github.com/user-attachments/assets/5ae0d95c-a984-4830-a493-d33da645e171)
+
 
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
@@ -59,10 +102,43 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int noshel, noque;
+    scanf("%d %d", &noshel, &noque);
+
+    int **shelarr = (int **)malloc(noshel * sizeof(int *));
+    int *nobookarr = (int *)calloc(noshel, sizeof(int));
+
+    for(int i = 0; i < noque; i++) {
+        int type, x, y;
+        scanf("%d %d %d", &type, &x, &y);
+        if(type == 1) {
+            nobookarr[x]++;
+            shelarr[x] = (int *)realloc(shelarr[x], nobookarr[x] * sizeof(int));
+            shelarr[x][nobookarr[x] - 1] = y;
+        } else if(type == 2) {
+            printf("%d\n", shelarr[x][y]);
+        } else if(type == 3) {
+            printf("%d\n", nobookarr[x]);
+        }
+    }
+
+    for(int i = 0; i < noshel; i++) {
+        free(shelarr[i]);
+    }
+    free(shelarr);
+    free(nobookarr);
+
+    return 0;
+}
+
 
 Output:
-//paste your output here
+![image](https://github.com/user-attachments/assets/11af2de9-ae67-4369-a17e-9d196f4dbcff)
+
 
 
 Result:
@@ -86,10 +162,26 @@ Algorithm:
 
 
 Program:
-//type your code here
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int a[n];
+    printf("Enter the elements:\n");
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+        sum += a[i];
+    }
+    printf("Sum of array elements: %d\n", sum);
+    return 0;
+}
+
 
 Output:
-//paste your output here
+![image](https://github.com/user-attachments/assets/b50277df-984c-4d38-a3d3-1ed35fdf263e)
+
 
  
 
@@ -120,10 +212,36 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char sentence[1000];
+    int count = 0, inWord = 0;
+
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    for(int i = 0; sentence[i] != '\0'; i++) {
+        if(!isspace(sentence[i]) && inWord == 0) {
+            inWord = 1;
+            count++;
+        } else if(isspace(sentence[i])) {
+            inWord = 0;
+        }
+    }
+
+    printf("Number of words: %d\n", count);
+    return 0;
+}
+
+
 
 Output:
-//paste your output here
+
+
+![image](https://github.com/user-attachments/assets/7604661c-088c-4542-b4d8-ed8fc2af2102)
 
 
 
