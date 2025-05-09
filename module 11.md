@@ -12,6 +12,8 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
+
+
 #include <stdio.h>
 
 int max_of_four(int a, int b, int c, int d) {
@@ -33,6 +35,7 @@ int main() {
 
 
 Output:
+
 ![image](https://github.com/user-attachments/assets/b54bd6a8-0f2a-433b-ae54-f0ed6e84cfe5)
 
 
@@ -55,6 +58,8 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
+
+
 #include <stdio.h>
 
 void calculate_the_max(int n, int k) {
@@ -81,6 +86,7 @@ int main() {
 
 
 Output:
+
 ![image](https://github.com/user-attachments/assets/5ae0d95c-a984-4830-a493-d33da645e171)
 
 
@@ -137,6 +143,8 @@ int main() {
 
 
 Output:
+
+
 ![image](https://github.com/user-attachments/assets/11af2de9-ae67-4369-a17e-9d196f4dbcff)
 
 
@@ -180,6 +188,8 @@ int main() {
 
 
 Output:
+
+
 ![image](https://github.com/user-attachments/assets/b50277df-984c-4d38-a3d3-1ed35fdf263e)
 
 
